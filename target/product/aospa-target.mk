@@ -110,6 +110,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 SYSTEM_OPTIMIZE_JAVA ?= true
 SYSTEMUI_OPTIMIZE_JAVA ?= true
 
+# Flags
+ifeq ($(TARGET_BUILD_VARIANT), user)
+    # Strip the local variable table and the local variable type table to reduce
+    # the size of the system image. This has no bearing on stack traces, but will
+    # leave less information available via JDWP.
+    PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+    # Disable dexpreopt debug info
+    WITH_DEXPREOPT_DEBUG_INFO := false
+    # Don't include art debug targets
+    PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+endif
+
 # Display
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     debug.sf.frame_rate_multiple_threshold=60 \
