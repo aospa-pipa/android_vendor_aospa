@@ -11,4 +11,9 @@ attribute hal_lineage_health_client;
 expandattribute hal_lineage_health_client true;
 attribute hal_lineage_health_server;
 expandattribute hal_lineage_health_server false;
-
+attribute hal_lineage_touch;
+expandattribute hal_lineage_touch true;
+attribute hal_lineage_touch_client;
+expandattribute hal_lineage_touch_client true;
+attribute hal_lineage_touch_server;
+expandattribute hal_lineage_touch_server false;

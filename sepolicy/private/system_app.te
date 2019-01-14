@@ -3,3 +3,6 @@ get_prop(system_app, aospa_build_prop)
 
 # Lid
 set_prop(system_app, lid_disable_prop)
+
+# Lineage
+hal_client_domain(system_app, hal_lineage_touch)
