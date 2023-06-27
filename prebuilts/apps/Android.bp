@@ -32,6 +32,19 @@ android_app_import {
     product_specific: true,
 }
 
+android_app_import {
+    apk: "NexusLauncherRelease.apk",
+    name: "PixelLauncher",
+    overrides: [
+        "Launcher3",
+        "Launcher3QuickStep",
+        "ParanoidLauncher"
+    ],
+    presigned: true,
+    privileged: true,
+    system_ext_specific: true,
+}
+
 prebuilt_etc {
     name: "lily_experience.xml",
     src: "lily_experience.xml",
