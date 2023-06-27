@@ -124,6 +124,13 @@ else
 $(warning Building Without GMS)
 endif
 
+# Pixel Launcher
+ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig \
+    PixelLauncher
+endif
+
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
      vendor/aospa/target/config/aospa_vendor_framework_compatibility_matrix.xml
