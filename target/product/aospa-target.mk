@@ -114,6 +114,9 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0.vendor \
     android.hidl.manager@1.0.vendor
 
+# Icons
+$(call inherit-product, packages/overlays/ThemeIcons/config.mk)
+
 # Java Optimizations
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 SYSTEM_OPTIMIZE_JAVA := true
