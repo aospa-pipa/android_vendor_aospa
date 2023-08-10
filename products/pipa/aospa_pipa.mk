@@ -22,6 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, device/xiaomi/pipa/device.mk)
 
 # Inherit from the AOSPA configuration.
+INCLUDE_PIXEL_LAUNCHER := true
 TARGET_NO_TELEPHONY := true
 $(call inherit-product, vendor/aospa/target/product/aospa-target.mk)
 
