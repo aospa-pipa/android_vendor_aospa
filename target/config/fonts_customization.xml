@@ -249,4 +249,12 @@
     <font weight="900" style="italic">HarmonyOS-Sans-BlackItalic.ttf</font>
   </family>
   <alias name="harmonyos-sans-medium" to="harmonyos-sans" weight="500"/>
+
+  <family customizationType="new-named-family" name="pingfang">
+    <font weight="100" style="normal">PingFangSC-Thin.ttf</font>
+    <font weight="300" style="normal">PingFangSC-Light.ttf</font>
+    <font weight="400" style="normal">PingFangSC-Regular.ttf</font>
+    <font weight="500" style="normal">PingFangSC-Medium.ttf</font>
+    <font weight="700" style="normal">PingFangSC-Semibold.ttf</font>
+  </family>
 </fonts-modification>
