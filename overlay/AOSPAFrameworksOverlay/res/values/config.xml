@@ -133,10 +133,12 @@
 
      <!-- Build properties from a GMS certified device against current platform SPL level -->
      <string-array name="config_certifiedBuildProperties" translatable="false">
-        <item>bullhead</item>   <!-- Build.DEVICE -->
-        <item>bullhead</item>   <!-- Build.PRODUCT -->
-        <item>Nexus 5X</item> <!-- Build.MODEL -->
-        <item>google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys</item> <!-- Build.FINGERPRINT -->
+        <item>MANUFACTURER:BullittGroupLimited</item>
+        <item>BRAND:Cat</item>
+        <item>DEVICE:CatS60</item>
+        <item>MODEL:S60</item>
+        <item>FINGERPRINT:Cat/CatS60/CatS60:6.0.1/MMB29M/LTE_D0201121.0_S60_0.031.02:user/release-keys</item>
+        <item>PRODUCT:CatS60</item>
      </string-array>
 
     <!-- Colon separated list of package names that should be granted Notification Listener access -->
