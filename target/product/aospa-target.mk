@@ -127,9 +127,12 @@ endif
 # Pixel Launcher
 ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig \
     PixelLauncher
 endif
+
+# SimpleDeviceConfig
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
