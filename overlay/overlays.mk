@@ -31,6 +31,16 @@ PRODUCT_PACKAGES += \
     FontOppoSansOverlay \
     FontPingFangOverlay \
     FontUrbanistOverlay \
+    ParanoidLauncherOverlay
+
+# Pixel Launcher
+ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
+PRODUCT_PACKAGES += \
+    NexusLauncherOverlay \
+    SimpleDeviceConfigOverlay \
+    PixelLauncherConfigOverlay
+else
+PRODUCT_PACKAGES += \
     IconPackCircularAndroidOverlay \
     IconPackCircularLauncherOverlay \
     IconPackCircularSettingsOverlay \
@@ -67,15 +77,7 @@ PRODUCT_PACKAGES += \
     IconShapeSquircleOverlay \
     IconShapeTaperedRectOverlay \
     IconShapeTeardropOverlay \
-    IconShapeVesselOverlay \
-    ParanoidLauncherOverlay
-
-# Pixel Launcher
-ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
-PRODUCT_PACKAGES += \
-    NexusLauncherOverlay \
-    SimpleDeviceConfigOverlay \
-    PixelLauncherConfigOverlay
+    IconShapeVesselOverlay
 endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aospa/overlay/static
