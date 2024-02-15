@@ -171,9 +171,12 @@ PRODUCT_COPY_FILES += \
 # Pixel Launcher
 ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig \
     PixelLauncher
 endif
+
+# SimpleDeviceConfig
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
 
 # Privapp-permissions
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
