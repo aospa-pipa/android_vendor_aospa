@@ -133,12 +133,12 @@
 
      <!-- Build properties from a GMS certified device against current platform SPL level -->
      <string-array name="config_certifiedBuildProperties" translatable="false">
-        <item>MANUFACTURER:BullittGroupLimited</item>
-        <item>BRAND:Cat</item>
-        <item>DEVICE:CatS60</item>
-        <item>MODEL:S60</item>
-        <item>FINGERPRINT:Cat/CatS60/CatS60:6.0.1/MMB29M/LTE_D0201121.0_S60_0.031.02:user/release-keys</item>
-        <item>PRODUCT:CatS60</item>
+        <item>MANUFACTURER:motorola</item>
+        <item>BRAND:motorola</item>
+        <item>DEVICE:griffin</item>
+        <item>MODEL:XT1650-05</item>
+        <item>FINGERPRINT:motorola/griffin_retcn/griffin:6.0.1/MCC24.246-37/42:user/release-keys</item>
+        <item>PRODUCT:griffin_retcn</item>
      </string-array>
 
     <!-- Colon separated list of package names that should be granted Notification Listener access -->
