@@ -25,7 +25,7 @@
     },
     {
         "remote": "aospa",
-        "repository": "AOSPA/android_hardware_xiaomi",
+        "repository": "aospa-pipa/android_hardware_xiaomi",
         "target_path": "hardware/xiaomi",
         "revision": "topaz"
     },
