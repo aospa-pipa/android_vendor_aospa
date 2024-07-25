@@ -174,6 +174,10 @@ endif
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
 
+# Preinstalled Packages
+PRODUCT_COPY_FILES += \
+    vendor/aospa/target/config/preinstalled-packages-aospa.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-aospa.xml
+
 # Privapp-permissions
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
