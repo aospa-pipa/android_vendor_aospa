@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
 # Google - GMS, Pixel, and Mainline Modules
 ifneq ($(TARGET_DISABLES_GMS), true)
 $(warning Building With GMS)
+PRODUCT_PACKAGES += PixelLauncher
 $(call inherit-product, vendor/google/gms/config.mk)
 $(call inherit-product, vendor/google/pixel/config.mk)
 ifneq ($(TARGET_EXCLUDE_GMODULES), true)
@@ -122,12 +123,6 @@ $(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules.m
 endif
 else
 $(warning Building Without GMS)
-endif
-
-# Pixel Launcher
-ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
-PRODUCT_PACKAGES += \
-    PixelLauncher
 endif
 
 # SimpleDeviceConfig

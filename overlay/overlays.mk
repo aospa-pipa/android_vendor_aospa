@@ -70,15 +70,13 @@ PRODUCT_PACKAGES += \
     ParanoidLauncherOverlay \
     PermissionControllerOverlay
 
+ifneq ($(TARGET_DISABLES_GMS), true)
 # Pixel Launcher
-ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
 PRODUCT_PACKAGES += \
     NexusLauncherOverlay \
     SimpleDeviceConfigOverlay \
     PixelLauncherConfigOverlay
-endif
-
-ifeq ($(TARGET_DISABLES_GMS), true)
+else
 # Overlay (Vanilla build)
 PRODUCT_PACKAGES += \
     VanillaFrameworksOverlay
