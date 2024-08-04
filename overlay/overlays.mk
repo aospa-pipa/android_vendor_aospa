@@ -34,7 +34,7 @@ PRODUCT_PACKAGES += \
     ParanoidLauncherOverlay
 
 # Pixel Launcher
-ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
+ifneq ($(TARGET_DISABLES_GMS), true)
 PRODUCT_PACKAGES += \
     NexusLauncherOverlay \
     SimpleDeviceConfigOverlay \
