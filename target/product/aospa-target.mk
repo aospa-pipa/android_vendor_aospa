@@ -95,9 +95,6 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0.vendor \
     android.hidl.manager@1.0.vendor
 
-# Icons
-$(call inherit-product, packages/overlays/ThemeIcons/config.mk)
-
 # Include fs tools for dedicated recovery and ramdisk partitions.
 PRODUCT_PACKAGES += \
     e2fsck_ramdisk \
