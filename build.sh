@@ -27,6 +27,20 @@ function checkExit () {
     fi
 }
 
+function get_ota_timestamp () {
+    local ota_package="$1"
+    local timestamp
+
+    timestamp=$(unzip -p "$ota_package" META-INF/com/android/metadata 2>/dev/null |
+        awk -F= '$1 == "post-timestamp" { gsub(/\r/, "", $2); print $2; exit }')
+    if [[ ! "$timestamp" =~ ^[0-9]+$ ]]; then
+        echo "${CLR_BLD_RED}Unable to read post-timestamp from $ota_package${CLR_RST}" >&2
+        return 1
+    fi
+
+    printf '%s\n' "$timestamp"
+}
+
 # Output usage help
 function showHelpAndExit {
         echo -e "${CLR_BLD_BLU}Usage: $0 <device> [options]${CLR_RST}"
@@ -259,6 +273,7 @@ elif [ "${KEY_MAPPINGS}" ]; then
             aospa-$AOSPA_VERSION.zip
 
         checkExit
+        OTA_PACKAGES+=("$DIR_ROOT/aospa-$AOSPA_VERSION.zip")
 
         if [ "$DELTA_TARGET_FILES" ]; then
             # die if base target doesn't exist
@@ -271,6 +286,7 @@ elif [ "${KEY_MAPPINGS}" ]; then
                 aospa-$AOSPA_VERSION-signed-target_files.zip \
                 aospa-$AOSPA_VERSION-delta.zip
             checkExit
+            OTA_PACKAGES+=("$DIR_ROOT/aospa-$AOSPA_VERSION-delta.zip")
         fi
     fi
 # Build rom package
@@ -292,12 +308,27 @@ else
     checkExit
 
     cp -f $OUT/aospa_$DEVICE-ota.zip $OUT/aospa-$AOSPA_VERSION.zip
-    echo "Package Complete: $OUT/aospa-$AOSPA_VERSION.zip"
+    OTA_PACKAGES+=("$OUT/aospa-$AOSPA_VERSION.zip")
 fi
 echo -e ""
 
 # Check the finishing time
 TIME_END=$(date +%s.%N)
+
+if [ "${#OTA_PACKAGES[@]}" -gt 0 ]; then
+    # Use the target build's ro.build.date.utc, which ota_from_target_files
+    # stores as post-timestamp, instead of the host's package completion time.
+    COMPLETION_TIMESTAMP=$(get_ota_timestamp "${OTA_PACKAGES[0]}") || exit 1
+    COMPLETION_TIME=$(date -u -d "@$COMPLETION_TIMESTAMP" '+%Y-%m-%d %H:%M:%S UTC')
+
+    for OTA_PACKAGE in "${OTA_PACKAGES[@]}"; do
+        echo "Package Complete: $OTA_PACKAGE"
+        echo "SHA256: $(sha256sum "$OTA_PACKAGE" | awk '{print $1}')"
+        echo "Size: $(stat -c%s "$OTA_PACKAGE") bytes"
+        echo "Completion time: $COMPLETION_TIME ($COMPLETION_TIMESTAMP)"
+    done
+    echo -e ""
+fi
 
 # Log those times at the end as a fun fact of the day
 echo -e "${CLR_BLD_GRN}Total time elapsed:${CLR_RST} ${CLR_GRN}$(echo "($TIME_END - $TIME_START) / 60" | bc) minutes ($(echo "$TIME_END - $TIME_START" | bc) seconds)${CLR_RST}"
