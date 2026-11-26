@@ -5,6 +5,12 @@
 -->
 <resources>
 
+    <!-- Maps the selected home app to the recents activity that owns Quickstep. -->
+    <string-array name="config_recentsComponentMappings" translatable="false">
+        <item>com.android.launcher3|com.android.launcher3/com.android.quickstep.RecentsActivity</item>
+        <item>com.google.android.apps.nexuslauncher|com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity</item>
+    </string-array>
+
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>"/system/bin/surfaceflinger"</item>
